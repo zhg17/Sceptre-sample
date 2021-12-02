@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  SampleFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: python3.8
+      InlineCode: |
+        import json
+        def handler(event, context):
+          return {
+            "statusCode":200,
+            "body":json.dumps({
+              "message":"here is the sample function"
+            })
+          }
+      Events:
+          Sample:
+            Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+            Properties:
+              Path: /sample
+              Method: get
+

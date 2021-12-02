@@ -1,0 +1,3 @@
+template:
+  path: lambda.yaml
+  type: file

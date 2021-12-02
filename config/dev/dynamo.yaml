@@ -1,0 +1,3 @@
+template:
+  path: dynamo.yaml
+  type: file
